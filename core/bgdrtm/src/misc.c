@@ -121,6 +121,13 @@ int debug = 0;  /* 1 if running in debug mode      */
 #define _OS_ID          OS_DINGUX_A320
 #endif
 
+#ifdef TARGET_OPENDINGUX_GCW0
+#ifdef _OS_ID
+#undef _OS_ID
+#endif
+#define _OS_ID          OS_OPENDINGUX_GCW0
+#endif
+
 #ifdef TARGET_WII
 #ifdef _OS_ID
 #undef _OS_ID

@@ -69,6 +69,7 @@ constants_def[] =
     { "OS_GP2X_WIZ"     , TYPE_DWORD, OS_GP2X_WIZ         },
     { "OS_CAANOO"       , TYPE_DWORD, OS_CAANOO           },
     { "OS_DINGUX_A320"  , TYPE_DWORD, OS_DINGUX_A320      },
+    { "OS_OPENDINGUX_GCW0"  , TYPE_DWORD, OS_OPENDINGUX_GCW0      },
     { "OS_WII"          , TYPE_DWORD, OS_WII              },
     { "OS_ANDROID"      , TYPE_DWORD, OS_ANDROID          },
     { "OS_IOS"          , TYPE_DWORD, OS_IOS              },
