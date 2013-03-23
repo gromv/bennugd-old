@@ -59,6 +59,16 @@
 #define KERNELC_V_3 16
 #endif
 
+#ifdef TARGET_OPENDINGUX_GCW0
+#include <unistd.h>
+#include <sys/sysinfo.h>
+#include <sys/utsname.h>
+#include <ctype.h>
+#define KERNELC_V_1 3
+#define KERNELC_V_2 7
+#define KERNELC_V_3 0
+#endif
+
 /* Mac OS X INCLUDES */
 #ifdef TARGET_MAC
 #include <unistd.h>

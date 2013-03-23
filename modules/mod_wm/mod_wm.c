@@ -39,6 +39,10 @@
 
 #include <SDL.h>
 
+#ifdef TARGET_OPENDINGUX_GCW0
+#undef SDL_VIDEO_DRIVER_X11
+#endif
+
 #if defined( WIN32 ) || ( __linux && ( defined( SDL_VIDEO_DRIVER_X11 ) ) )
 #include <SDL_syswm.h>
 #endif
