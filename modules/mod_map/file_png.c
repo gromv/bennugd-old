@@ -83,7 +83,7 @@ GRAPH * gr_read_png( const char * filename )
 
     /* Rutina de error */
 
-#if (PNG_LIBPNG_VER>=10412)
+#if (PNG_LIBPNG_VER>=10400)
     if ( setjmp( png_jmpbuf( png_ptr ) ) )
 #else
     if ( setjmp( png_ptr->jmpbuf ) )
@@ -259,7 +259,7 @@ GRAPH * gr_read_png( const char * filename )
     }
     else if ( depth == 8 && sys_pixel_format->depth != 16 )
     {
-#if (PNG_LIBPNG_VER>=10412)
+#if (PNG_LIBPNG_VER>=10400)
         png_color_16p trans_color = 0;
         png_get_tRNS( png_ptr, info_ptr, 0, 0, &trans_color);
 #endif
@@ -277,7 +277,7 @@ GRAPH * gr_read_png( const char * filename )
                 *ptr32 = *orig ;
 
                 /* DCelso */
-#if (PNG_LIBPNG_VER>=10412)
+#if (PNG_LIBPNG_VER>=10400)
                 if (( color == PNG_COLOR_TYPE_RGB ) && ( png_get_bit_depth(png_ptr, info_ptr) == 24 ) && ( png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS) ))
 #else
                 if (( color == PNG_COLOR_TYPE_RGB ) && ( info_ptr->pixel_depth == 24 ) && ( info_ptr->valid & PNG_INFO_tRNS ))
@@ -285,7 +285,7 @@ GRAPH * gr_read_png( const char * filename )
                 {
                 	uint8_t * ptr8 = (uint8_t *)orig;
         			if (
-#if (PNG_LIBPNG_VER>=10412)
+#if (PNG_LIBPNG_VER>=10400)
         			    ( ptr8[0] == trans_color->red   ) &&
         				( ptr8[1] == trans_color->green ) &&
         				( ptr8[2] == trans_color->blue  )
@@ -303,7 +303,7 @@ GRAPH * gr_read_png( const char * filename )
     }
     else
     {
-#if (PNG_LIBPNG_VER>=10412)
+#if (PNG_LIBPNG_VER>=10400)
         png_color_16p trans_color = 0;
         png_get_tRNS( png_ptr, info_ptr, 0, 0, &trans_color);
 #endif
@@ -336,7 +336,7 @@ GRAPH * gr_read_png( const char * filename )
                     *ptr = 0 ;
 
                 /* DCelso */
-#if (PNG_LIBPNG_VER>=10412)
+#if (PNG_LIBPNG_VER>=10400)
                 if (( color == PNG_COLOR_TYPE_RGB ) && ( png_get_bit_depth(png_ptr, info_ptr) == 24 ) && ( png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS) ))
 #else
                 if (( color == PNG_COLOR_TYPE_RGB ) && ( info_ptr->pixel_depth == 24 ) && ( info_ptr->valid & PNG_INFO_tRNS ))
@@ -344,7 +344,7 @@ GRAPH * gr_read_png( const char * filename )
                 {
                 	uint8_t * ptr8 = (uint8_t *)orig;
         			if (
-#if (PNG_LIBPNG_VER>=10412)
+#if (PNG_LIBPNG_VER>=10400)
         			    ( ptr8[0] == trans_color->red   ) &&
         				( ptr8[1] == trans_color->green ) &&
         				( ptr8[2] == trans_color->blue  )
@@ -363,7 +363,7 @@ GRAPH * gr_read_png( const char * filename )
 
     /* Fin */
 
-#if (PNG_LIBPNG_VER>=10412)
+#if (PNG_LIBPNG_VER>=10400)
     if ( !setjmp( png_jmpbuf( png_ptr ) ) )
 #else
     if ( !setjmp( png_ptr->jmpbuf ) )
@@ -439,7 +439,7 @@ int gr_save_png( GRAPH * gr, const char * filename )
 
     /* Error handling... */
 
-#if (PNG_LIBPNG_VER>=10412)
+#if (PNG_LIBPNG_VER>=10400)
     if ( setjmp( png_jmpbuf( png_ptr ) ) )
 #else
     if ( setjmp( png_ptr->jmpbuf ) )
@@ -477,7 +477,7 @@ int gr_save_png( GRAPH * gr, const char * filename )
                 PNG_FILTER_TYPE_BASE ) ;
 
 
-#if (PNG_LIBPNG_VER>=10412)
+#if (PNG_LIBPNG_VER>=10400)
         if (!( gr->info_flags & GI_NOCOLORKEY ))
         {
             /* this need test */
